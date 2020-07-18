@@ -14,6 +14,17 @@ export const fetchPosts = () => {
     }
 }
 
+export const fetchUser = (id) => {
+    return async (dispatch, getState) => {
+        const response = await api.get(`/users/${id}`);
+        
+        dispatch({
+            type: 'FETCH_USER',
+            payload: response.data
+        });
+    }
+}
+
 // const mockApi = () =>{
 //     return new Promise((resolve, reject) => {
 //         setTimeout(() => {
